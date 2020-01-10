@@ -20,7 +20,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 
 from blog import views as blog
 from app import forms, views as app
-
+# comment this is committed this will be
 urlpatterns = [
     path('', app.home, name='home'),
     path('contact/', app.contact, name='contact'),
