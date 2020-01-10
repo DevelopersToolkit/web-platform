@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Post, Tag, Activity, Comment
 # Register your models here.
-
+# hope this works
 
 class PostAdmin(admin.ModelAdmin):
     exclude = ('slug',)
