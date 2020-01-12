@@ -18,20 +18,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.views import LoginView, LogoutView
 
+from app import views as app
 from blog import views as blog
-from app import forms, views as app
+
+# TODO Add login/logout capability to all pages
 
 urlpatterns = [
-    path('', include('app.urls')),
-    # path('', app.home, name='home'),
-    # path('contact/', app.contact, name='contact'),
-    # path('about/', app.about, name='about'),
-    # path('login/', LoginView.as_view(
-    #     template_name='app/login.html',
-    #     authentication_form=forms.BootstrapAuthenticationForm,
-    #     extra_context={'title': 'Log in', 'year': datetime.now().year}
-    # ), name='login'),
-    # path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
-    # path('blog/', include('blog.urls')),
-    # path('admin/', admin.site.urls),
+    path('', app.home, name='app_home'),
+    path('home/', app.home, name='app_home'),
+    path('contact/', app.contact, name='app_contact'),
+    path('about/', app.about, name='app_about'),
+    path('blog/', include('blog.urls')),
+    path('admin/', admin.site.urls),
 ]

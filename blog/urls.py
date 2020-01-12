@@ -21,10 +21,11 @@ from django.contrib.auth.views import LoginView, LogoutView
 from blog import views as blog
 
 urlpatterns = [
-    path('', blog.home, name='home'),
-    path('gallery/', blog.gallery, name='gallery'),
-    path('gallery/item/', blog.gallery_item, name='gallery_item'),
-    path('tutorials/', app.about, name='tutorial'),
-    path('news/', LogoutView.as_view(next_page='/'), name='news'),
-    path('blog/', include('blog.urls'))
+    path('', blog.home, name='blog_home'),
+    path('gallery/', blog.gallery, name='blog_gallery'),
+    path('gallery/<str:title>/', blog.gallery_item, name='blog_gallery_item'),
+    path('tutorials/', blog.tutorial, name='blog_tutorial'),
+    path('tutorials/<str:title>/', blog.tutorial_item, name='blog_tutorial_item'),
+    path('tutorials/<str:title>/<int:index>/', blog.tutorial_item_index, name='blog_tutorial_item_index'),
+    path('news/', blog.news, name='blog_news'),
 ]
