@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'app/base.html' %}
 
-</body>
-</html>
+{% block content %}
+<div class="container">
+    <h3>Our Team</h3>
+    <div class="row">
+        <div class="card">
+            <img src="andrew_burton.jpg" alt="Andrew Burton" style="width: 100%;">
+            <h1>Andrew Burton</h1>
+            <p class="title">CEO & Founder, Example</p>
+            <p>University of Calgary</p>
+            <!-- Links: Linkedin, GitHub, etc. -->
+            <p><button>Contact</button></p>
+        </div>
+        <div class="card">
+            <img src="jacob_goodwin.jpg" alt="Jacob Goodwin" style="width: 100%;">
+            <h1>Jacob Goodwin</h1>
+            <p class="title">Co-Founder, Example</p>
+            <p>University of Calgary</p>
+            <!-- Links: Linkedin, GitHub, etc. -->
+            <p><button>Contact</button></p>
+        </div>
+        <div class="card">
+            <img src="jordan_labell.jpg" alt="Jordan Labell" style="width: 100%;">
+            <h1>Jordan Labell</h1>
+            <p class="title">CTO Co-Founder, Example</p>
+            <p>University of Calgary</p>
+            <!-- Links: Linkedin, GitHub, etc. -->
+            <p><button>Contact</button></p>
+        </div>
+    </div>
+    <h1>Get in touch</h1>
+    <form>
+        <!--make js form to send email-->
+    </form>
+</div>
+{% endblock content %}
