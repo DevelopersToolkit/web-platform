@@ -20,6 +20,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 
 from blog import views as blog
 
+app_name = 'blog'
 urlpatterns = [
     path('', blog.home, name='blog_home'),
     path('gallery/', blog.gallery, name='blog_gallery'),

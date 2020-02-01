@@ -1,37 +1,74 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
+<style>
+    .customcard {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+    }
+    .title {
+        color: grey;
+        font-size: 18px;
+    }
+    button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: black;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+    a {
+        text-decoration: none;
+        font-size: 22px;
+        color: black;
+    }
+    button:hover, a:hover {
+        opacity: 0.7;
+    }
+</style>
 <div class="container">
-    <h3>Our Team</h3>
+    <br>
+    <h3 style="text-align: center;">Our Team</h3><hr/>
     <div class="row">
-        <div class="card">
-            <img src="andrew_burton.jpg" alt="Andrew Burton" style="width: 100%;">
-            <h1>Andrew Burton</h1>
-            <p class="title">CEO & Founder, Example</p>
-            <p>University of Calgary</p>
-            <!-- Links: Linkedin, GitHub, etc. -->
-            <p><button>Contact</button></p>
+        {% for tier1_user in tier1_users %}
+            <div class="customcard">
+                <img src="{{ tier1_user.avatar.url }}" alt="{{ tier1_user.avatar.url }}" style="width: 100%; height: 100%;">
+                <h2>{{ tier1_user.name }}</h2>
+                <p class="title">{{ tier1_user.title }}</p>
+                <p>{{ tier1_user.education }}</p>
+                <div class="center-block">
+                    <a href="{{ tier1_user.github }}" style="padding: 15px"><i class="fa fa-github"></i></a>
+
+                    <a href="{{ tier1_user.linkedin }}" style="padding: 15px"><i class="fa fa-linkedin"></i></a>
+                </div><br>
+                <!-- Open a modal to send mail to the specified user -->
+                <button href="{{ mail }}">Contact</button>
+            </div>
+        {% endfor %}
+    </div><br>
+    <h3 style="text-align: center">Technical Support</h3><hr/>
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Online Support</h5>
         </div>
-        <div class="card">
-            <img src="jacob_goodwin.jpg" alt="Jacob Goodwin" style="width: 100%;">
-            <h1>Jacob Goodwin</h1>
-            <p class="title">Co-Founder, Example</p>
-            <p>University of Calgary</p>
-            <!-- Links: Linkedin, GitHub, etc. -->
-            <p><button>Contact</button></p>
+        <div class="col-md-6">
+            <h5>Contact Support Team</h5>
         </div>
-        <div class="card">
-            <img src="jordan_labell.jpg" alt="Jordan Labell" style="width: 100%;">
-            <h1>Jordan Labell</h1>
-            <p class="title">CTO Co-Founder, Example</p>
-            <p>University of Calgary</p>
-            <!-- Links: Linkedin, GitHub, etc. -->
-            <p><button>Contact</button></p>
-        </div>
-    </div>
-    <h1>Get in touch</h1>
-    <form>
-        <!--make js form to send email-->
-    </form>
+    </div><br>
+    <h3 style="text-align: center">General Inquiries</h3><hr/>
+    <div>
+        <!-- general information -->
+    </div><br>
+    <h3 style="text-align: center">Frequently Asked Questions</h3><hr/>
+
+    <h1>end</h1>
+    <!--TODO Add contact form to send to default email contact@developerstoolkit.com-->
 </div>
 {% endblock content %}

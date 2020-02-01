@@ -5,10 +5,39 @@
     {% load static %}
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Additional head context here -->
     {% block head %}{% endblock head %}
     <title>{{ title }}</title>
 </head>
+<style>
+    .social-network ul {
+        align-content: center;
+        text-align: center;
+        font-size: 42px;
+        list-style: none;
+        margin: 0;
+        padding: 65px 0;
+    }
+
+    .social-network ul li {
+        display: inline-block;
+        padding-right: 35px;
+        margin-right: 35px;
+        border-right: 1px solid #777;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #f2f2f2;
+    }
+
+</style>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-static-top">
         <a class="navbar-brand" href="{% url 'app_home' %}">Developers Toolkit</a>
@@ -28,7 +57,7 @@
                         <a class="nav-link {% if url_name == 'app_about' %}active{% endif %}" href="{% url 'app_about' %}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if url_name == 'app_blog' %}active{% endif %}" href="{% url 'app_blog' %}">Blog</a>
+                        <a class="nav-link" href="{% url 'blog:blog_home' %}">Blog</a>
                     </li>
                 </ul>
             {% endwith %}
@@ -39,7 +68,7 @@
     {% block content %}Content not found{% endblock content %}
 
     <!-- Insert footer contents here -->
-    <footer class="position fixed container-fluid bg-dark text-white py-3 navbar-sticky-bottom">
+    <footer class="page-footer font-small special-color-dark">
         <div class="container">
             <h5>footer block</h5>
         </div>
@@ -47,7 +76,7 @@
         <div class="dark-bg">
             <div class="container footer-external-links">
                 <div class="row">
-                    <div class="col-sm">
+                    <div class="col-sm social network">
                         <ul>
                             <li>
                                 <a href="https://github.com/DevelopersToolkit" target="_blank">
@@ -75,7 +104,7 @@
             </div>
         </div>
         <!-- Copyright -->
-        <div class="copyright">
+        <div class="copyright text-center">
             <small style="color: #777; font-family: 'Montserrat', 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif; font-size: .8em; text-transform: uppercase; letter-spacing: 1px;">
                 &copy; {{ year }} Copyright: <a class="text-light" href="{% url 'app_home' %}">developerstoolkit.com</a>
             </small>
