@@ -88,7 +88,7 @@ class Activity(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(to=Post, on_delete=models.SET_NULL, null=True, blank=True)
-    comment = models.ForeignKey(to='Comment', related_name='commments', on_delete=models.SET_NULL, null=True, blank=True)
+    comment = models.ForeignKey(to='Comment', related_name='comments', on_delete=models.SET_NULL, null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     body = models.TextField()
     activities = GenericRelation(Activity)

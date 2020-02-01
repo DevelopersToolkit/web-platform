@@ -1,10 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'app/base.html' %}
 
-</body>
-</html>
+{% block content %}
+<style>
+    .customcard {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+    }
+    .title {
+        color: grey;
+        font-size: 18px;
+    }
+    button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: black;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+    a {
+        text-decoration: none;
+        font-size: 22px;
+        color: black;
+    }
+    button:hover, a:hover {
+        opacity: 0.7;
+    }
+</style>
+<div class="container">
+    <br>
+    <h3 style="text-align: center;">Our Team</h3><hr/>
+    <div class="row">
+        {% for tier1_user in tier1_users %}
+            <div class="customcard">
+                <img src="{{ tier1_user.avatar.url }}" alt="{{ tier1_user.avatar.url }}" style="width: 100%; height: 100%;">
+                <h2>{{ tier1_user.name }}</h2>
+                <p class="title">{{ tier1_user.title }}</p>
+                <p>{{ tier1_user.education }}</p>
+                <div class="center-block">
+                    <a href="{{ tier1_user.github }}" style="padding: 15px"><i class="fa fa-github"></i></a>
+
+                    <a href="{{ tier1_user.linkedin }}" style="padding: 15px"><i class="fa fa-linkedin"></i></a>
+                </div><br>
+                <!-- Open a modal to send mail to the specified user -->
+                <button href="{{ mail }}">Contact</button>
+            </div>
+        {% endfor %}
+    </div><br>
+    <h3 style="text-align: center">Technical Support</h3><hr/>
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Online Support</h5>
+        </div>
+        <div class="col-md-6">
+            <h5>Contact Support Team</h5>
+        </div>
+    </div><br>
+    <h3 style="text-align: center">General Inquiries</h3><hr/>
+    <div>
+        <!-- general information -->
+    </div><br>
+    <h3 style="text-align: center">Frequently Asked Questions</h3><hr/>
+
+    <h1>end</h1>
+    <!--TODO Add contact form to send to default email contact@developerstoolkit.com-->
+</div>
+{% endblock content %}

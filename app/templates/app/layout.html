@@ -5,6 +5,19 @@
     <title>Title</title>
 </head>
 <body>
+    <div class="container header-content">
 
+    </div>
+    <div class="container body-content">
+        {% block content %}{% endblock content %}
+    </div>
+    <div class="container footer-content">
+        <footer>
+            <p>&copy; {{ year }} - Developers Toolkit - Just another Andrew Burton Production
+        </footer>
+    </div>
+
+    <!--Add universal scripts here, other wise added in each scripts block-->
+    {% block scripts %}{% endblock scripts %}
 </body>
 </html>
